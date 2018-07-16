@@ -1,0 +1,21 @@
+{
+  "name": "com.riscocloud.security",
+  "version": "1.0.0",
+  "description": "App for getting information out of your Risco Alarm. Attribution: Question House by icon 54 from the Noun Project",
+  "main": "app.js",
+  "dependencies": {
+    "homey-log": "git+https://github.com/athombv/node-homey-log.git",
+    "request": "^2.85.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "run": "homeyConfig compose && athom project --run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian Johansson",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "http://www.hibbisoft.com"
+}

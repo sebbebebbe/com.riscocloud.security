@@ -1,0 +1,48 @@
+{
+  "id": "com.riscocloud.security",
+  "version": "1.0.0",
+  "compatibility": ">=1.5.0",
+  "sdk": 2,
+  "name": {
+    "en": "Risco Cloud Security"
+  },
+  "description": {
+    "en": "Adds support for Risco Cloud Alarm"
+  },
+  "category": ["security"],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Sebastian Johansson - HibbiSoft AB",
+    "email": "riscocloud@hibbisoft.se"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "johanssonsebastian"
+      }
+    }
+  },
+  "drivers": [
+    {
+      "id": "panel",
+      "name": {
+        "en": "Alarm Panel"
+      },
+      "images": {
+        "large": "drivers/panel/assets/images/large.png",
+        "small": "drivers/panel/assets/images/small.png"
+      },
+      "class": "homealarm",
+      "capabilities": ["homealarm_state", "alarm_generic"],
+      "pair": [
+        {
+          "id": "pair"
+        }
+      ]
+    }
+  ]
+}
