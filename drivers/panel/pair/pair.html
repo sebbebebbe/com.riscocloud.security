@@ -1,57 +1,59 @@
-
 <script type="application/javascript">
 
-var riscoSettings = {};
+    var riscoSettings = {};
 
-function addDevice() {
-    var device = { name: "Risco Alarm State", class: "homealarm", capabilitiesOptions: [ "homealarm_state"], data: {id: "panel"}};
-        Homey.addDevice(device, function(err, result) {
+    function addDevice() {
+        var device = { name: "Risco Alarm State", class: "homealarm", capabilitiesOptions: ["homealarm_state"], data: { id: "panel" } };
+        Homey.addDevice(device, function (err, result) {
             if (err) {
                 Homey.alert("Could not add device!");
             } else {
-                Homey.emit('completed', device, function(err, result) {
+                Homey.emit('completed', device, function (err, result) {
                     if (err) {
                         Homey.alert("Error when adding Device!");
                     } else {
-                       Homey.done();
+                        Homey.done();
                     }
                 });
             }
         });
     }
 
-	function saveCredentials(form) {
-		var username = $('#username').val();
-		var password = $('#password').val();        
+    function saveCredentials(form) {
+        var username = $('#username').val();
+        var password = $('#password').val();
 
         //this.log("submit credentials");
         Homey.emit('submit_credentials', { 'username': username, 'password': password }, function (err, result) {
-                if (err) {
-                    console.log(err);
-                    return Homey.alert(err);
-                }
+            if (err) {
+                console.log(err);
+                return Homey.alert(err);
+            }
 
-                //this.log(result);
+            //this.log(result);
 
-                if(result === "done")
-                {
-                    addDevice();
-                }
-            });
+            if (result === "done") {
+                addDevice();
+            }
+        });
     }
-    
+
 </script>
 <form name="riscoCloudForm" action="javascript: saveCredentials(riscoCloudForm)">
-	<fieldset>
-		<legend data-i18n="Risco Cloud Credentials"></legend>
+    <fieldset>
+        <legend data-i18n="Risco Cloud Credentials"></legend>
         <div>
             <label for="username" data-i18n="Username"></label>
             <input id="username" required/>
         </div>
         <div>
             <label for="password" data-i18n="Password"></label>
-             <input id="password" type="password" required/>
-            </div>
-	</fieldset>
-	<button type="submit" id="save" data-i18n="Save"></button>
+            <input id="password" type="password" required/>
+        </div>
+        <div>
+            <label for="code" data-i18n="Code"></label>
+            <input id="code" type="password" required/>
+        </div>
+    </fieldset>
+    <button type="submit" id="save" data-i18n="Save"></button>
 </form>

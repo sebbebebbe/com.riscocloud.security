@@ -11,6 +11,7 @@ class PanelDriver extends Homey.Driver {
     socket.on("submit_credentials", (data, callback) => {
       Homey.ManagerSettings.set("username", data.username);
       Homey.ManagerSettings.set("password", data.password);
+      Homey.ManagerSettings.set("code", data.code);
       this.log("Risco cloud settings set");
 
       callback(null, "done");
