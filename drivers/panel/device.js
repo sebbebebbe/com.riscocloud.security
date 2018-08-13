@@ -39,8 +39,6 @@ class PanelDevice extends Homey.Device {
   getAlarmState() {
     return new Promise((resolve, reject) => {
       Homey.app.getAlarmState().then(result => {
-        //console.log(result.body);
-
         if (result !== null) {
           if (result.body.overview !== null) {
             if (result.body.overview.partInfo !== null) {
@@ -56,7 +54,6 @@ class PanelDevice extends Homey.Device {
               } else {
                 console.log(" unknown status: ", result.body.overview.partInfo);
               }
-
               this.setCapabilityValue("homealarm_state", state);
             }
           }

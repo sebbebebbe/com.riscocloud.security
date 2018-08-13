@@ -22,9 +22,10 @@
     function saveCredentials(form) {
         var username = $('#username').val();
         var password = $('#password').val();
+        var code = $('#code').val();
 
         //this.log("submit credentials");
-        Homey.emit('submit_credentials', { 'username': username, 'password': password }, function (err, result) {
+        Homey.emit('submit_credentials', { 'username': username, 'password': password, 'code': code }, function (err, result) {
             if (err) {
                 console.log(err);
                 return Homey.alert(err);
